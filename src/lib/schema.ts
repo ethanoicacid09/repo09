@@ -182,6 +182,7 @@ export const orders = pgTable(
     shippingState: text("shipping_state"),
     shippingPostalCode: text("shipping_postal_code"),
     shippingCountry: text("shipping_country"),
+    shippingPhone: text("shipping_phone"),
     stripeSessionId: text("stripe_session_id"),
     stripePaymentIntentId: text("stripe_payment_intent_id"),
     createdAt: timestamp("created_at", { mode: "date" }).defaultNow().notNull(),

@@ -120,9 +120,10 @@ export function CheckoutForm({ userEmail }: { userEmail: string }) {
             />
           </div>
           <div className="space-y-2">
-            <Label htmlFor="phone">Phone (optional)</Label>
+            <Label htmlFor="phone">Phone</Label>
             <Input
               id="phone"
+              required
               value={form.phone}
               onChange={(e) => update("phone", e.target.value)}
             />

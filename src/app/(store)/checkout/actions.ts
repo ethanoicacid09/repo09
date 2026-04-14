@@ -62,6 +62,7 @@ export async function createCheckoutSession(input: CheckoutInput) {
       shippingState: input.shipping.state,
       shippingPostalCode: input.shipping.postalCode,
       shippingCountry: input.shipping.country,
+      shippingPhone: input.shipping.phone,
     })
     .returning();
 

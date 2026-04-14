@@ -54,7 +54,7 @@ export default async function AdminProductsPage() {
           </Button>
         </div>
       ) : (
-        <div className="overflow-hidden rounded-xl border bg-card">
+        <div className="overflow-x-auto rounded-xl border bg-card">
           <table className="w-full">
             <thead>
               <tr className="border-b bg-muted/50">
