@@ -171,7 +171,7 @@ export function CheckoutForm({ userEmail }: { userEmail: string }) {
             Processing...
           </>
         ) : (
-          `Pay $${(totalPrice() + (totalPrice() >= 75 ? 0 : 9.99)).toFixed(2)}`
+          `Pay ₹${(totalPrice() + (totalPrice() >= 2000 ? 0 : 199)).toFixed(2)}`
         )}
       </Button>
     </form>
