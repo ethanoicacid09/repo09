@@ -21,7 +21,7 @@ export function CheckoutForm({ userEmail }: { userEmail: string }) {
     city: "",
     state: "",
     postalCode: "",
-    country: "US",
+    country: "IN",
     phone: "",
   });
 
@@ -171,7 +171,7 @@ export function CheckoutForm({ userEmail }: { userEmail: string }) {
             Processing...
           </>
         ) : (
-          `Pay ₹${(totalPrice() + (totalPrice() >= 2000 ? 0 : 199)).toFixed(2)}`
+          `Place Order — ₹${(totalPrice() + (totalPrice() >= 2000 ? 0 : 199)).toFixed(2)}`
         )}
       </Button>
     </form>

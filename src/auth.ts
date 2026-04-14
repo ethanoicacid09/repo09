@@ -64,6 +64,10 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     }),
   ],
   callbacks: {
+    async signIn() {
+      // Allow sign-in without email verification
+      return true;
+    },
     async jwt({ token, user }) {
       if (user) {
         token.id = user.id;

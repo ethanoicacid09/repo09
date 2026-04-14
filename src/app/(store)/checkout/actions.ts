@@ -1,7 +1,10 @@
 "use server";
 
 import { redirect } from "next/navigation";
-import { stripe } from "@/lib/stripe";
+import { auth } from "@/auth";
+import { db } from "@/lib/db";
+import { orders, orderItems, users } from "@/lib/schema";
+import { eq } from "drizzle-orm";
 
 interface CheckoutInput {
   items: {
@@ -24,52 +27,55 @@ interface CheckoutInput {
 }
 
 export async function createCheckoutSession(input: CheckoutInput) {
+  const session = await auth();
+  if (!session?.user) throw new Error("Not authenticated");
+
   const subtotal = input.items.reduce(
     (t, i) => t + i.price * i.quantity,
     0
   );
-  const shippingCost = subtotal >= 2000 ? 0 : 19900;
+  const shippingCost = subtotal >= 2000 ? 0 : 199;
+  const total = subtotal + shippingCost;
 
-  const session = await stripe.checkout.sessions.create({
-    line_items: input.items.map((item) => ({
-      price_data: {
-        currency: "inr",
-        product_data: {
-          name: item.name,
-          images: [item.image],
-        },
-        unit_amount: Math.round(item.price * 100),
-      },
-      quantity: item.quantity,
-    })),
-    ...(shippingCost > 0 && {
-      shipping_options: [
-        {
-          shipping_rate_data: {
-            type: "fixed_amount" as const,
-            fixed_amount: { amount: shippingCost, currency: "inr" },
-            display_name: "Standard Shipping",
-            delivery_estimate: {
-              minimum: { unit: "business_day" as const, value: 5 },
-              maximum: { unit: "business_day" as const, value: 7 },
-            },
-          },
-        },
-      ],
-    }),
-    mode: "payment",
-    customer_email: input.email,
-    metadata: {
+  const orderNumber = `ZH-${Date.now().toString(36).toUpperCase()}`;
+
+  const [user] = await db
+    .select()
+    .from(users)
+    .where(eq(users.email, input.email))
+    .limit(1);
+
+  if (!user) throw new Error("User not found");
+
+  const [order] = await db
+    .insert(orders)
+    .values({
+      orderNumber,
+      userId: user.id,
+      status: "processing",
+      subtotal: subtotal.toFixed(2),
+      shippingCost: shippingCost.toFixed(2),
+      total: total.toFixed(2),
       shippingName: `${input.shipping.firstName} ${input.shipping.lastName}`,
       shippingStreet: input.shipping.street,
       shippingCity: input.shipping.city,
       shippingState: input.shipping.state,
       shippingPostalCode: input.shipping.postalCode,
       shippingCountry: input.shipping.country,
-    },
-    success_url: `${process.env.NEXT_PUBLIC_URL}/checkout/success?session_id={CHECKOUT_SESSION_ID}`,
-    cancel_url: `${process.env.NEXT_PUBLIC_URL}/cart`,
-  });
+    })
+    .returning();
 
-  redirect(session.url!);
+  if (input.items.length > 0) {
+    await db.insert(orderItems).values(
+      input.items.map((item) => ({
+        orderId: order.id,
+        productId: user.id, // placeholder
+        name: item.name,
+        price: item.price.toFixed(2),
+        quantity: item.quantity,
+      }))
+    );
+  }
+
+  redirect("/checkout/success");
 }
