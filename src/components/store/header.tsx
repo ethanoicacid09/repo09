@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import {
   ShoppingBag,
   Menu,
@@ -31,7 +31,8 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { ThemeToggle } from "@/components/shared/theme-toggle";
 import { CartDrawer } from "@/components/store/cart-drawer";
 import { useCartStore } from "@/lib/stores/cart-store";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
+import { Input } from "@/components/ui/input";
 
 const navLinks = [
   { href: "/products", label: "Shop" },
@@ -42,8 +43,12 @@ const navLinks = [
 
 export function StoreHeader() {
   const pathname = usePathname();
+  const router = useRouter();
   const { data: session } = useSession();
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
+  const searchRef = useRef<HTMLInputElement>(null);
   const [mounted, setMounted] = useState(false);
   const totalItems = useCartStore((s) => s.totalItems);
 
@@ -123,11 +128,46 @@ export function StoreHeader() {
 
         {/* Right: Search, Theme, Cart, User */}
         <div className="flex items-center gap-1">
-          <Link href="/products">
-            <Button variant="ghost" size="icon" className="h-9 w-9">
+          {searchOpen ? (
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                if (searchQuery.trim()) {
+                  router.push(`/products?q=${encodeURIComponent(searchQuery.trim())}`);
+                }
+                setSearchOpen(false);
+                setSearchQuery("");
+              }}
+              className="flex items-center gap-1"
+            >
+              <Input
+                ref={searchRef}
+                type="search"
+                placeholder="Search..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                onBlur={() => {
+                  if (!searchQuery.trim()) {
+                    setSearchOpen(false);
+                  }
+                }}
+                className="h-9 w-40 sm:w-56"
+                autoFocus
+              />
+            </form>
+          ) : (
+            <Button
+              variant="ghost"
+              size="icon"
+              className="h-9 w-9"
+              onClick={() => {
+                setSearchOpen(true);
+                setTimeout(() => searchRef.current?.focus(), 0);
+              }}
+            >
               <Search className="h-4 w-4" />
             </Button>
-          </Link>
+          )}
 
           <ThemeToggle />
 
