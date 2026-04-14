@@ -75,11 +75,11 @@ export default async function OrderDetailPage({ params }: Props) {
                       {item.product?.name ?? item.name}
                     </p>
                     <p className="text-xs text-muted-foreground">
-                      Qty: {item.quantity} × ${item.price}
+                      Qty: {item.quantity} × ₹{item.price}
                     </p>
                   </div>
                   <p className="text-sm font-medium">
-                    $
+                    ₹
                     {(parseFloat(item.price) * item.quantity).toFixed(2)}
                   </p>
                 </div>
@@ -87,7 +87,7 @@ export default async function OrderDetailPage({ params }: Props) {
             </div>
             <div className="border-t bg-muted/50 px-4 py-3 flex justify-between">
               <span className="text-sm font-semibold">Total</span>
-              <span className="text-sm font-bold">${order.total}</span>
+              <span className="text-sm font-bold">₹{order.total}</span>
             </div>
           </div>
         </div>

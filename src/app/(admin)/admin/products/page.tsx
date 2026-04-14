@@ -102,7 +102,7 @@ export default async function AdminProductsPage() {
                     {product.category.name}
                   </td>
                   <td className="px-4 py-3 text-sm font-medium">
-                    ${product.price}
+                    ₹{product.price}
                   </td>
                   <td className="hidden px-4 py-3 text-sm md:table-cell">
                     {product.stock <= 0 ? (

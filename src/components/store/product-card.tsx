@@ -82,10 +82,10 @@ export function ProductCard({
             {name}
           </h3>
           <div className="flex items-center gap-2">
-            <p className="text-sm font-semibold">${numPrice.toFixed(2)}</p>
+            <p className="text-sm font-semibold">₹{numPrice.toFixed(2)}</p>
             {onSale && (
               <p className="text-xs text-muted-foreground line-through">
-                ${numCompare.toFixed(2)}
+                ₹{numCompare.toFixed(2)}
               </p>
             )}
           </div>

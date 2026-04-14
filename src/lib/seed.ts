@@ -98,8 +98,8 @@ async function seed() {
       description:
         "A soothing blend of organic chamomile, lavender, and lemon balm. Perfect for winding down in the evening. Hand-blended in small batches for peak freshness. Caffeine-free.",
       categoryId: catMap["herbal-teas"],
-      price: "18.00",
-      compareAtPrice: "24.00",
+      price: "499.00",
+      compareAtPrice: "699.00",
       sku: "TEA-CCB-001",
       stock: 80,
       isActive: true,
@@ -111,7 +111,7 @@ async function seed() {
       description:
         "Holy basil (Tulsi) blended with ginger and green cardamom for a naturally energizing tea. Adaptogenic and stress-relieving. 50g loose-leaf pouch.",
       categoryId: catMap["herbal-teas"],
-      price: "22.00",
+      price: "599.00",
       sku: "TEA-TEI-002",
       stock: 65,
       isActive: true,
@@ -123,8 +123,8 @@ async function seed() {
       description:
         "Premium natural cork surface with a high-density rubber base. Non-slip grip that improves with moisture. 5mm thick, 183cm × 68cm. Antimicrobial and eco-friendly.",
       categoryId: catMap["yoga-essentials"],
-      price: "78.00",
-      compareAtPrice: "99.00",
+      price: "2499.00",
+      compareAtPrice: "3499.00",
       sku: "YGA-CYM-001",
       stock: 35,
       isActive: true,
@@ -136,7 +136,7 @@ async function seed() {
       description:
         "Set of 2 lightweight bamboo yoga blocks. Rounded edges for comfort. Provides firm support for poses and stretches. Sustainably harvested bamboo.",
       categoryId: catMap["yoga-essentials"],
-      price: "42.00",
+      price: "1299.00",
       sku: "YGA-BYB-002",
       stock: 50,
       isActive: true,
@@ -148,7 +148,7 @@ async function seed() {
       description:
         "Organic ashwagandha root extract, 600mg per capsule. KSM-66 standardized. Supports stress relief, focus, and restful sleep. 90 capsules per bottle.",
       categoryId: catMap["supplements"],
-      price: "32.00",
+      price: "899.00",
       sku: "SUP-ARC-001",
       stock: 100,
       isActive: true,
@@ -160,7 +160,7 @@ async function seed() {
       description:
         "Concentrated turmeric extract with black pepper (piperine) for enhanced absorption. Supports joint health and inflammation response. 60ml dropper bottle.",
       categoryId: catMap["supplements"],
-      price: "28.00",
+      price: "749.00",
       sku: "SUP-TBP-002",
       stock: 70,
       isActive: true,
@@ -172,7 +172,7 @@ async function seed() {
       description:
         "100% pure steam-distilled lavender oil from French lavender fields. Calming aroma for sleep, relaxation, and meditation. 15ml amber glass bottle.",
       categoryId: catMap["aromatherapy"],
-      price: "24.00",
+      price: "699.00",
       sku: "ARO-LEO-001",
       stock: 90,
       isActive: true,
@@ -184,7 +184,7 @@ async function seed() {
       description:
         "Handcrafted ceramic ultrasonic diffuser with warm ambient lighting. Covers 30 sq meters. Whisper-quiet for meditation and yoga studios. Auto shut-off.",
       categoryId: catMap["aromatherapy"],
-      price: "58.00",
+      price: "1799.00",
       sku: "ARO-COD-002",
       stock: 25,
       isActive: true,
@@ -196,7 +196,7 @@ async function seed() {
       description:
         "Soothing herbal balm made with organic calendula, beeswax, and coconut oil. For dry skin, minor irritations, and cracked hands. 60ml tin.",
       categoryId: catMap["skincare"],
-      price: "19.00",
+      price: "549.00",
       sku: "SKN-CHB-001",
       stock: 60,
       isActive: true,
@@ -208,8 +208,8 @@ async function seed() {
       description:
         "Cold-pressed rosehip oil blended with vitamin E and jojoba. Lightweight, fast-absorbing. Brightens, hydrates, and supports skin renewal. 30ml glass dropper.",
       categoryId: catMap["skincare"],
-      price: "36.00",
-      compareAtPrice: "48.00",
+      price: "999.00",
+      compareAtPrice: "1499.00",
       sku: "SKN-RFS-002",
       stock: 40,
       isActive: true,
@@ -221,7 +221,7 @@ async function seed() {
       description:
         "Illustrated guide to yoga postures and their anatomical benefits. 320 pages with full-color diagrams. Ideal for teachers and serious practitioners.",
       categoryId: catMap["books-guides"],
-      price: "34.00",
+      price: "999.00",
       sku: "BOK-YAG-001",
       stock: 45,
       isActive: true,
@@ -233,7 +233,7 @@ async function seed() {
       description:
         "Comprehensive reference covering 120 medicinal herbs — identification, preparation, dosage, and safety. Written by a certified herbalist. Hardcover, 480 pages.",
       categoryId: catMap["books-guides"],
-      price: "42.00",
+      price: "1299.00",
       sku: "BOK-HMH-002",
       stock: 30,
       isActive: true,

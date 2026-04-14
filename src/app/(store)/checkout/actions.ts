@@ -28,12 +28,12 @@ export async function createCheckoutSession(input: CheckoutInput) {
     (t, i) => t + i.price * i.quantity,
     0
   );
-  const shippingCost = subtotal >= 75 ? 0 : 999;
+  const shippingCost = subtotal >= 2000 ? 0 : 19900;
 
   const session = await stripe.checkout.sessions.create({
     line_items: input.items.map((item) => ({
       price_data: {
-        currency: "usd",
+        currency: "inr",
         product_data: {
           name: item.name,
           images: [item.image],
@@ -47,7 +47,7 @@ export async function createCheckoutSession(input: CheckoutInput) {
         {
           shipping_rate_data: {
             type: "fixed_amount" as const,
-            fixed_amount: { amount: shippingCost, currency: "usd" },
+            fixed_amount: { amount: shippingCost, currency: "inr" },
             display_name: "Standard Shipping",
             delivery_estimate: {
               minimum: { unit: "business_day" as const, value: 5 },

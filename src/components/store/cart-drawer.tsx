@@ -89,7 +89,7 @@ export function CartDrawer({ children }: { children: ReactNode }) {
                         </button>
                       </div>
                       <p className="text-sm text-muted-foreground">
-                        ${item.price.toFixed(2)}
+                        ₹{item.price.toFixed(2)}
                       </p>
                       <div className="mt-auto flex items-center gap-2">
                         <button
@@ -121,7 +121,7 @@ export function CartDrawer({ children }: { children: ReactNode }) {
             <div className="border-t pt-4">
               <div className="flex justify-between text-sm">
                 <span className="text-muted-foreground">Subtotal</span>
-                <span className="font-medium">${totalPrice().toFixed(2)}</span>
+                <span className="font-medium">₹{totalPrice().toFixed(2)}</span>
               </div>
               <p className="mt-1 text-xs text-muted-foreground">
                 Shipping and taxes calculated at checkout

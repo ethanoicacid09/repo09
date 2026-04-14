@@ -1,7 +1,7 @@
 import { db } from "@/lib/db";
 import { products, orders, users } from "@/lib/schema";
 import { sql, eq, desc } from "drizzle-orm";
-import { DollarSign, Package, ShoppingCart, Users } from "lucide-react";
+import { IndianRupee, Package, ShoppingCart, Users } from "lucide-react";
 import { StatsCard } from "@/components/admin/stats-card";
 import { Badge } from "@/components/ui/badge";
 import type { Metadata } from "next";
@@ -62,9 +62,9 @@ export default async function AdminDashboardPage() {
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         <StatsCard
           title="Total Revenue"
-          value={`$${stats.revenue.toLocaleString("en-US", { minimumFractionDigits: 2 })}`}
+          value={`₹${stats.revenue.toLocaleString("en-IN", { minimumFractionDigits: 2 })}`}
           description="Lifetime earnings"
-          icon={DollarSign}
+          icon={IndianRupee}
         />
         <StatsCard
           title="Orders"

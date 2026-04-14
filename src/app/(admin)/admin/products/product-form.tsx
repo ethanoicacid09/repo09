@@ -137,7 +137,7 @@ export function ProductForm({ categories, initialData }: ProductFormProps) {
           <CardContent className="space-y-4">
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-2">
-                <Label htmlFor="price">Price ($)</Label>
+                <Label htmlFor="price">Price (₹)</Label>
                 <Input
                   id="price"
                   required
@@ -147,7 +147,7 @@ export function ProductForm({ categories, initialData }: ProductFormProps) {
                 />
               </div>
               <div className="space-y-2">
-                <Label htmlFor="compareAtPrice">Compare-at price ($)</Label>
+                <Label htmlFor="compareAtPrice">Compare-at price (₹)</Label>
                 <Input
                   id="compareAtPrice"
                   value={form.compareAtPrice}

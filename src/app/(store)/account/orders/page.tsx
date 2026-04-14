@@ -74,7 +74,7 @@ export default async function OrdersPage() {
                 </Badge>
               </div>
               <div className="text-right">
-                <p className="text-lg font-semibold">${order.total}</p>
+                <p className="text-lg font-semibold">₹{order.total}</p>
               </div>
             </div>
           ))}

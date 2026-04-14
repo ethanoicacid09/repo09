@@ -73,11 +73,11 @@ export default function CartPage() {
                             {item.name}
                           </Link>
                           <p className="mt-0.5 text-sm text-muted-foreground">
-                            ${item.price.toFixed(2)} each
+                            ₹{item.price.toFixed(2)} each
                           </p>
                         </div>
                         <p className="font-medium">
-                          ${(item.price * item.quantity).toFixed(2)}
+                          ₹{(item.price * item.quantity).toFixed(2)}
                         </p>
                       </div>
                       <div className="flex items-center justify-between">
@@ -141,15 +141,15 @@ export default function CartPage() {
                   <span className="text-muted-foreground">
                     Subtotal ({totalItems()} items)
                   </span>
-                  <span>${totalPrice().toFixed(2)}</span>
+                  <span>₹{totalPrice().toFixed(2)}</span>
                 </div>
                 <div className="flex justify-between text-sm">
                   <span className="text-muted-foreground">Shipping</span>
                   <span>
-                    {totalPrice() >= 75 ? (
+                    {totalPrice() >= 2000 ? (
                       <span className="text-primary">Free</span>
                     ) : (
-                      "$9.99"
+                      "₹199"
                     )}
                   </span>
                 </div>
@@ -157,16 +157,16 @@ export default function CartPage() {
                 <div className="flex justify-between font-semibold">
                   <span>Total</span>
                   <span>
-                    $
+                    ₹
                     {(
-                      totalPrice() + (totalPrice() >= 75 ? 0 : 9.99)
+                      totalPrice() + (totalPrice() >= 2000 ? 0 : 199)
                     ).toFixed(2)}
                   </span>
                 </div>
               </div>
-              {totalPrice() < 75 && (
+              {totalPrice() < 2000 && (
                 <p className="mt-3 text-xs text-muted-foreground">
-                  Add ${(75 - totalPrice()).toFixed(2)} more for free shipping
+                  Add ₹{(2000 - totalPrice()).toFixed(2)} more for free shipping
                 </p>
               )}
               <Button className="mt-6 w-full" size="lg" asChild>

@@ -154,15 +154,15 @@ export default async function ProductDetailPage({ params }: Props) {
 
           {/* Price */}
           <div className="mt-4 flex items-baseline gap-3">
-            <p className="text-2xl font-bold">${numPrice.toFixed(2)}</p>
+            <p className="text-2xl font-bold">₹{numPrice.toFixed(2)}</p>
             {onSale && (
               <p className="text-lg text-muted-foreground line-through">
-                ${numCompare.toFixed(2)}
+                ₹{numCompare.toFixed(2)}
               </p>
             )}
             {onSale && (
               <Badge variant="secondary">
-                Save ${(numCompare - numPrice).toFixed(0)}
+                Save ₹{(numCompare - numPrice).toFixed(0)}
               </Badge>
             )}
           </div>

@@ -143,18 +143,18 @@ export function CheckoutForm({ userEmail }: { userEmail: string }) {
             <span className="text-muted-foreground">
               {item.name} × {item.quantity}
             </span>
-            <span>${(item.price * item.quantity).toFixed(2)}</span>
+            <span>₹{(item.price * item.quantity).toFixed(2)}</span>
           </div>
         ))}
         <Separator />
         <div className="flex justify-between text-sm">
           <span className="text-muted-foreground">Shipping</span>
-          <span>{totalPrice() >= 75 ? "Free" : "$9.99"}</span>
+          <span>{totalPrice() >= 2000 ? "Free" : "₹199"}</span>
         </div>
         <div className="flex justify-between font-semibold">
           <span>Total</span>
           <span>
-            ${(totalPrice() + (totalPrice() >= 75 ? 0 : 9.99)).toFixed(2)}
+            ₹{(totalPrice() + (totalPrice() >= 2000 ? 0 : 199)).toFixed(2)}
           </span>
         </div>
       </div>

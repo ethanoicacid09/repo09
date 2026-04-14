@@ -98,7 +98,7 @@ export default async function AdminOrdersPage() {
                     {new Date(order.createdAt).toLocaleDateString()}
                   </td>
                   <td className="px-4 py-3 text-right text-sm font-medium">
-                    ${order.total}
+                    ₹{order.total}
                   </td>
                   <td className="px-4 py-3 text-right">
                     <Button variant="ghost" size="sm" asChild>
