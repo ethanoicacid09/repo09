@@ -19,19 +19,26 @@ async function seed() {
   await db.delete(products);
   await db.delete(categories);
 
-  // ── Admin user ──
+  // ── Admin users ──
   const adminPassword = await hashPassword("admin123");
-  await db
-    .insert(users)
-    .values({
-      name: "Admin",
-      email: "admin@verdant.store",
-      hashedPassword: adminPassword,
-      role: "admin",
-    })
-    .onConflictDoNothing();
+  const adminUsers = [
+    { name: "Admin", email: "admin@verdant.store", hashedPassword: adminPassword },
+    { name: "Yash", email: "gupta25yash@gmail.com", hashedPassword: null },
+    { name: "Sakshi", email: "sakshibhadke6@gmail.com", hashedPassword: null },
+  ];
 
-  console.log("✓ Admin user created (admin@verdant.store / admin123)");
+  for (const admin of adminUsers) {
+    await db
+      .insert(users)
+      .values({ ...admin, role: "admin" as const })
+      .onConflictDoUpdate({
+        target: users.email,
+        set: { role: "admin" as const },
+      });
+  }
+
+  console.log("✓ Admin users created/promoted:")
+  adminUsers.forEach((u) => console.log(`  - ${u.email}`));
 
   // ── Categories ──
   const categoryData = [
