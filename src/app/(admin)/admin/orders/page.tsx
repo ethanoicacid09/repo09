@@ -47,7 +47,7 @@ export default async function AdminOrdersPage() {
           <p className="text-muted-foreground">No orders yet</p>
         </div>
       ) : (
-        <div className="overflow-hidden rounded-xl border bg-card">
+        <div className="overflow-x-auto rounded-xl border bg-card">
           <table className="w-full">
             <thead>
               <tr className="border-b bg-muted/50">
