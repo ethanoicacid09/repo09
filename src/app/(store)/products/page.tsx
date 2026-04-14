@@ -4,6 +4,7 @@ import { eq, desc, asc, ilike, and, sql } from "drizzle-orm";
 import { ProductCard } from "@/components/store/product-card";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { SearchInput } from "@/components/store/search-input";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -56,7 +57,9 @@ export default async function ProductsPage({ searchParams }: Props) {
     }
 
     if (params.q) {
-      conditions.push(ilike(products.name, `%${params.q}%`));
+      conditions.push(
+        sql`(${ilike(products.name, `%${params.q}%`)} OR ${ilike(products.description, `%${params.q}%`)})`
+      );
     }
 
     const where = and(...conditions);
@@ -121,16 +124,21 @@ export default async function ProductsPage({ searchParams }: Props) {
   return (
     <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
       {/* Header */}
-      <div className="mb-8">
-        <h1 className="text-3xl font-bold tracking-tight">
-          {activeCategory
-            ? allCategories.find((c) => c.slug === activeCategory)?.name ??
-              "Products"
-            : "All Products"}
-        </h1>
-        <p className="mt-2 text-muted-foreground">
-          {totalCount} {totalCount === 1 ? "product" : "products"}
-        </p>
+      <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+        <div>
+          <h1 className="text-3xl font-bold tracking-tight">
+            {activeCategory
+              ? allCategories.find((c) => c.slug === activeCategory)?.name ??
+                "Products"
+              : "All Products"}
+          </h1>
+          <p className="mt-2 text-muted-foreground">
+            {totalCount} {totalCount === 1 ? "product" : "products"}
+          </p>
+        </div>
+        <div className="w-full sm:w-72">
+          <SearchInput />
+        </div>
       </div>
 
       <div className="flex flex-col gap-8 lg:flex-row">
