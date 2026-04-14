@@ -53,7 +53,7 @@ function SignInForm() {
     <Card className="w-full max-w-sm">
       <CardHeader className="text-center">
         <Link href="/" className="mx-auto text-xl font-semibold tracking-tight">
-          Verdant
+          ZenHerb
         </Link>
         <CardTitle className="mt-4 text-2xl">Welcome back</CardTitle>
         <CardDescription>Sign in to your account</CardDescription>

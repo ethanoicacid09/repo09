@@ -35,9 +35,9 @@ import { useState, useEffect } from "react";
 
 const navLinks = [
   { href: "/products", label: "Shop" },
-  { href: "/products?category=clothing", label: "Clothing" },
-  { href: "/products?category=home-living", label: "Home" },
-  { href: "/products?category=outdoor", label: "Outdoor" },
+  { href: "/products?category=herbal-teas", label: "Herbal Teas" },
+  { href: "/products?category=yoga-essentials", label: "Yoga" },
+  { href: "/products?category=supplements", label: "Supplements" },
 ];
 
 export function StoreHeader() {
@@ -71,7 +71,7 @@ export function StoreHeader() {
                     onClick={() => setMobileOpen(false)}
                     className="text-xl font-semibold tracking-tight"
                   >
-                    Verdant
+                    ZenHerb
                   </Link>
                 </SheetTitle>
               </SheetHeader>
@@ -99,7 +99,7 @@ export function StoreHeader() {
             href="/"
             className="text-xl font-semibold tracking-tight text-foreground"
           >
-            Verdant
+            ZenHerb
           </Link>
 
           {/* Desktop nav */}

@@ -3,15 +3,15 @@ import Link from "next/link";
 const footerLinks = {
   Shop: [
     { href: "/products", label: "All Products" },
-    { href: "/products?category=clothing", label: "Clothing" },
-    { href: "/products?category=accessories", label: "Accessories" },
-    { href: "/products?category=home-living", label: "Home & Living" },
+    { href: "/products?category=herbal-teas", label: "Herbal Teas" },
+    { href: "/products?category=yoga-essentials", label: "Yoga Essentials" },
+    { href: "/products?category=supplements", label: "Supplements" },
   ],
-  Company: [
-    { href: "#", label: "About" },
-    { href: "#", label: "Sustainability" },
-    { href: "#", label: "Careers" },
-    { href: "#", label: "Press" },
+  Learn: [
+    { href: "#", label: "Herb Guide" },
+    { href: "#", label: "Yoga Classes" },
+    { href: "#", label: "Blog" },
+    { href: "#", label: "Recipes" },
   ],
   Support: [
     { href: "#", label: "Contact" },
@@ -32,11 +32,11 @@ export function StoreFooter() {
               href="/"
               className="text-lg font-semibold tracking-tight text-foreground"
             >
-              Verdant
+              ZenHerb
             </Link>
             <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-              Thoughtfully curated goods for everyday living. Quality over quantity,
-              always.
+              Premium herbs, herbal remedies, and yoga essentials for mindful living.
+              Nurture your body and spirit.
             </p>
           </div>
 
@@ -62,7 +62,7 @@ export function StoreFooter() {
 
         <div className="border-t py-6">
           <p className="text-center text-xs text-muted-foreground">
-            © {new Date().getFullYear()} Verdant. All rights reserved.
+            © {new Date().getFullYear()} ZenHerb. All rights reserved.
           </p>
         </div>
       </div>

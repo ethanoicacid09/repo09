@@ -44,18 +44,18 @@ export default async function HomePage() {
           <div className="grid items-center gap-8 py-20 lg:grid-cols-2 lg:gap-16 lg:py-32">
             <div className="max-w-xl">
               <p className="text-sm font-medium uppercase tracking-widest text-primary">
-                Curated with care
+                Rooted in nature
               </p>
               <h1 className="mt-4 text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
-                Goods that
+                Herbs & yoga
                 <br />
-                <span className="text-primary">stand the test</span>
+                <span className="text-primary">for mindful</span>
                 <br />
-                of time
+                living
               </h1>
               <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
-                A thoughtfully curated collection of everyday essentials — designed
-                to last, made to matter. Quality you can feel, style that endures.
+                Premium herbal remedies, organic teas, and yoga essentials — crafted
+                to nurture your body, calm your mind, and elevate your practice.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <Button size="lg" asChild>
@@ -65,8 +65,8 @@ export default async function HomePage() {
                   </Link>
                 </Button>
                 <Button size="lg" variant="outline" asChild>
-                  <Link href="/products?category=home-living">
-                    Home & Living
+                  <Link href="/products?category=yoga-essentials">
+                    Yoga Essentials
                   </Link>
                 </Button>
               </div>
@@ -74,8 +74,8 @@ export default async function HomePage() {
             <div className="relative hidden lg:block">
               <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-muted">
                 <Image
-                  src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&q=80"
-                  alt="Curated collection of everyday goods"
+                  src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=800&q=80"
+                  alt="Herbs and yoga essentials"
                   fill
                   className="object-cover"
                   priority
@@ -84,8 +84,8 @@ export default async function HomePage() {
               </div>
               {/* Floating accent card */}
               <div className="absolute -bottom-6 -left-6 rounded-xl border bg-card p-4 shadow-lg">
-                <p className="text-2xl font-bold text-primary">500+</p>
-                <p className="text-xs text-muted-foreground">Happy customers</p>
+                <p className="text-2xl font-bold text-primary">2,000+</p>
+                <p className="text-xs text-muted-foreground">Happy practitioners</p>
               </div>
             </div>
           </div>
@@ -99,8 +99,8 @@ export default async function HomePage() {
             {[
               { icon: Truck, title: "Free Shipping", desc: "On orders over $75" },
               { icon: RotateCcw, title: "Easy Returns", desc: "30-day return window" },
-              { icon: Shield, title: "Secure Checkout", desc: "Encrypted payments" },
-              { icon: Leaf, title: "Sustainably Made", desc: "Eco-conscious materials" },
+              { icon: Shield, title: "Lab Tested", desc: "Purity guaranteed" },
+              { icon: Leaf, title: "100% Organic", desc: "Certified ingredients" },
             ].map(({ icon: Icon, title, desc }) => (
               <div key={title} className="flex items-start gap-3">
                 <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
@@ -212,11 +212,11 @@ export default async function HomePage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="rounded-2xl bg-primary px-6 py-16 text-center sm:px-16">
             <h2 className="text-2xl font-bold tracking-tight text-primary-foreground sm:text-3xl">
-              New arrivals every week
+              New herbs & classes every week
             </h2>
             <p className="mx-auto mt-4 max-w-md text-primary-foreground/80">
               Sign up for our newsletter and be the first to know about new
-              products, exclusive deals, and curated collections.
+              herbal blends, yoga class schedules, and wellness tips.
             </p>
             <div className="mt-8 flex justify-center gap-3">
               <Button

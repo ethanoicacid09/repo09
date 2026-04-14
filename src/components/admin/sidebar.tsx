@@ -40,7 +40,7 @@ export function AdminSidebar() {
             href="/admin"
             className="text-lg font-semibold tracking-tight"
           >
-            Verdant
+            ZenHerb
           </Link>
         )}
         <Button

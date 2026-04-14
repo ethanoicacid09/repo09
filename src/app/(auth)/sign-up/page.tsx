@@ -61,10 +61,10 @@ export default function SignUpPage() {
     <Card className="w-full max-w-sm">
       <CardHeader className="text-center">
         <Link href="/" className="mx-auto text-xl font-semibold tracking-tight">
-          Verdant
+          ZenHerb
         </Link>
         <CardTitle className="mt-4 text-2xl">Create an account</CardTitle>
-        <CardDescription>Start shopping with Verdant</CardDescription>
+        <CardDescription>Start your wellness journey with ZenHerb</CardDescription>
       </CardHeader>
       <CardContent>
         <form onSubmit={handleSubmit} className="space-y-4">

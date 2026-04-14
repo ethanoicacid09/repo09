@@ -69,7 +69,7 @@ export const useCartStore = create<CartStore>()(
         get().items.reduce((t, i) => t + i.price * i.quantity, 0),
     }),
     {
-      name: "verdant-cart",
+      name: "zenherb-cart",
     }
   )
 );

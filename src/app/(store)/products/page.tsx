@@ -8,7 +8,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Shop All Products",
-  description: "Browse our full collection of curated goods at Verdant.",
+  description: "Browse our full collection of herbs, remedies, and yoga essentials at ZenHerb.",
 };
 
 interface Props {

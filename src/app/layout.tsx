@@ -11,11 +11,11 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: "Verdant — Curated Marketplace",
-    template: "%s | Verdant",
+    default: "ZenHerb — Herbs & Yoga Essentials",
+    template: "%s | ZenHerb",
   },
   description:
-    "Discover thoughtfully curated products at Verdant. Quality goods, modern design, sustainable choices.",
+    "Discover premium herbs, herbal remedies, and yoga essentials at ZenHerb. Nurture your body, mind, and spirit.",
 };
 
 export default function RootLayout({
