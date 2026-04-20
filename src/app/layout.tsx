@@ -11,7 +11,7 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: "ZenHerb — Herbs & Yoga Essentials",
+    default: "ZenHerb — Natural wellness Meets Mindful Living",
     template: "%s | ZenHerb",
   },
   description:
