@@ -857,7 +857,7 @@ A pattern for managing data that multiple components need to share. The cart nee
 ### Q15: What security measures are implemented?
 **A:** (1) Password hashing (SHA-256). (2) JWT-based sessions with HTTP-only cookies. (3) Server-side input validation with Zod. (4) Role-based access control in middleware + server actions. (5) Stripe webhook signature verification. (6) UUID primary keys (non-guessable). (7) Environment variables for secrets (never hardcoded).
 
----
+--- 
 
 ## Quick Reference Card
 
